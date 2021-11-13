@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "timetables-parser-optivum"
+version = "1.0.0"
+description = "VULCAN® Optivum® timetable parser library"
+readme = "README.md"
+authors = ["Kuba Szczodrzyński <kuba@szczodrzynski.pl>"]
+license = "MIT"
+packages = [
+    { include = "timetables/parser/optivum" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = { extras = ["speedups"], version = "^3.8.0" }
+beautifulsoup4 = "^4.10.0"
+lxml = "^4.6.4"
+pydantic = "^1.8.2"
+timetables-lib = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.10b0"
+isort = "^5.10.1"
+
+[tool.poetry.scripts]
+optivum = "timetables.parser.optivum.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
